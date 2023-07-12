@@ -3,6 +3,7 @@ import React from 'react';
 import {View, Text, SafeAreaView, TouchableOpacity, Image} from "react-native";
 import {Card} from "react-native-paper";
 import { Entypo } from '@expo/vector-icons';
+import {useRouter} from "expo-router";
 
 type Props = {
   id: string;
@@ -12,9 +13,11 @@ type Props = {
 }
 
 const DoctorListItem = ({id, name, image, speciality}: Props) => {
+  const router = useRouter();
   return (
     <SafeAreaView>
       <TouchableOpacity
+        onPress={() => router.push(`/doctor/${id}`)}
         activeOpacity={0.7}
         className="pt-5 py-3 flex flex-row items-center bg-gray-100 mx-5 my-1 rounded-lg shadow-xl border border-gray-300 px-5">
         <View className="flex space-x-4 flex-row items-center flex-1">
