@@ -11,7 +11,7 @@ const Search = () => {
   const [filteredDoctors, setFilteredDoctors] = useState(doctors);
 
   useEffect(() => {
-    setFilteredDoctors(doctors.filter((doctor) => doctor.name.toLowerCase().includes(search.toLowerCase())));
+    setFilteredDoctors(doctors.filter((doctor) => doctor.name.toLowerCase().includes(search.toLowerCase()) || doctor.speciality.toLowerCase().includes(search.toLowerCase())));
   }, [search]);
 
   useLayoutEffect(() => {
@@ -24,7 +24,7 @@ const Search = () => {
   }, [navigation]);
 
   return (
-    <View className="pt-10">
+    <View className="pt-10 flex-1">
       <FlatList
         data={filteredDoctors}
         showsVerticalScrollIndicator={false}

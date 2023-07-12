@@ -16,7 +16,7 @@ const DoctorListItem = ({id, name, image, speciality}: Props) => {
     <SafeAreaView>
       <TouchableOpacity
         activeOpacity={0.7}
-        className="pt-5 py-7 flex flex-row items-center bg-gray-100 mx-5 my-1 rounded-lg shadow-xl border border-gray-300 px-5">
+        className="pt-5 py-3 flex flex-row items-center bg-gray-100 mx-5 my-1 rounded-lg shadow-xl border border-gray-300 px-5">
         <View className="flex space-x-4 flex-row items-center flex-1">
           <Image
             style={{width: 70, height: 70, borderRadius: 50}}

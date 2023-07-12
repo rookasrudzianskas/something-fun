@@ -16,47 +16,5 @@
     "name": "Tom Smith",
     "image": "https://picsum.photos/500/300?random=3",
     "speciality": "The Radiology"
-  },
-  {
-    "id": 4,
-    "name": "Nikola Tesla",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Tesla Doctor"
-  },
-  {
-    "id": 5,
-    "name": "Albert Einstein",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Blood Physics"
-  },
-  {
-    "id": 6,
-    "name": "Newton Isaac",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Cardiology"
-  },
-  {
-    "id": 7,
-    "name": "Rokas Rudzianskas",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Legs"
-  },
-  {
-    "id": 8,
-    "name": "Tom Smith",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "The Radiology"
-  },
-  {
-    "id": 9,
-    "name": "Nikola Tesla",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Tesla Doctor"
-  },
-  {
-    "id": 10,
-    "name": "Albert Einstein",
-    "image": "https://picsum.photos/500/300?random=3",
-    "speciality": "Blood Physics"
   }
 ]
