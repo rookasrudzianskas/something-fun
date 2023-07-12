@@ -2,7 +2,7 @@ import groupBy from 'lodash/groupBy';
 import filter from 'lodash/filter';
 import find from 'lodash/find';
 
-import React, {Component, useState} from 'react';
+import React, {Component, useEffect, useState} from 'react';
 import {Alert} from 'react-native';
 import {
   ExpandableCalendar,
@@ -22,6 +22,8 @@ import {useSearchParams} from "expo-router";
 
 const INITIAL_TIME = {hour: 9, minutes: 0};
 const EVENTS: TimelineEventProps[] = timelineEvents;
+const START_OF_DAY = 8;
+const END_OF_DAY = 18;
 
 const DoctorScreen = () => {
   const [currentDate, setCurrentDate] = useState(getDate());
@@ -31,6 +33,10 @@ const DoctorScreen = () => {
   });
 
   const { id } = useSearchParams();
+
+  useEffect(() => {
+
+  }, [])
 
   const marked = {
     [`${getDate(-1)}`]: {marked: true},
