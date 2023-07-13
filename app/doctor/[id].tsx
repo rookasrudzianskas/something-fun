@@ -86,6 +86,8 @@ const DoctorScreen = () => {
 
   const  timelineProps: Partial<TimelineProps> = {
     format24h: true,
+    start: START_OF_DAY - 1,
+    end: END_OF_DAY + 1,
     // onBackgroundLongPress: createNewEvent,
     // onBackgroundLongPressOut: approveNewEvent,
     // scrollToFirst: true,
