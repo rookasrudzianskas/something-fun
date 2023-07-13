@@ -82,6 +82,23 @@ const DoctorScreen = () => {
     [`${getDate(4)}`]: {marked: true}
   };
 
+  const onEventPressHandler = (event: any) => {
+    Alert.alert('Confirm Appointment', `Are you sure you want to book this appointment with doctor - ${id} on ${new Date(event.start).toDateString()} at ${new Date(event.start).toLocaleTimeString()}?`, [
+      {
+        text: 'Yes',
+        onPress: () => {
+          Alert.alert('Appointment Booked', 'Your appointment has been booked successfully');
+        }
+      },
+      {
+        text: 'No',
+        onPress: () => {
+          Alert.alert('Appointment Not Booked', 'Your appointment has not been booked');
+        }
+      },
+    ]);
+  }
+
 
 
   const  timelineProps: Partial<TimelineProps> = {
@@ -96,6 +113,7 @@ const DoctorScreen = () => {
     unavailableHours: [{start: 0, end: 6}, {start: 18, end: 24}],
     overlapEventsSpacing: 8,
     rightEdgeSpacing: 24,
+    onEventPress: (event: any) => onEventPressHandler(event),
     };
 
   const onDateChanged = (date: string) => {
@@ -123,7 +141,6 @@ const DoctorScreen = () => {
       />
       <TimelineList
         events={slots}
-
         timelineProps={timelineProps}
         showNowIndicator
         // scrollToNow
