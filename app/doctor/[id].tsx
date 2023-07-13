@@ -24,6 +24,7 @@ const INITIAL_TIME = {hour: 9, minutes: 0};
 const EVENTS: TimelineEventProps[] = timelineEvents;
 const START_OF_DAY = 8;
 const END_OF_DAY = 18;
+const INCREMENTS = 30;
 
 const DoctorScreen = () => {
   const [currentDate, setCurrentDate] = useState(getDate());
@@ -35,8 +36,19 @@ const DoctorScreen = () => {
   const { id } = useSearchParams();
 
   useEffect(() => {
+    const timeSlot = `${getDate()} ${START_OF_DAY}:00:00`;
+    const endOfDay = `${getDate()} ${END_OF_DAY}:00:00`;
+    const slots = [];
 
-  }, [])
+    while (new Date(timeSlot) < new Date(endOfDay)) {
+      slots.push({
+        start: `${getDate(-1)} 09:20:00`,
+        end: `${getDate(-1)} 12:00:00`,
+        title: 'Merge Request to React Native Calendars',
+        summary: 'Merge Timeline Calendar to React Native Calendars'
+      })
+    }
+  }, []);
 
   const marked = {
     [`${getDate(-1)}`]: {marked: true},
