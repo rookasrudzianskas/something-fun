@@ -8,6 +8,7 @@ import {
   ExpandableCalendar,
   TimelineEventProps,
   TimelineList,
+  Timeline,
   CalendarProvider,
   TimelineProps,
   CalendarUtils
@@ -120,6 +121,7 @@ const DoctorScreen = () => {
       />
       <TimelineList
         events={slots}
+
         timelineProps={timelineProps}
         showNowIndicator
         // scrollToNow
