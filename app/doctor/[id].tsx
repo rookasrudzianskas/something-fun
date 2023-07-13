@@ -33,21 +33,44 @@ const DoctorScreen = () => {
     [key: string]: TimelineEventProps[];
   });
 
+  const [slots, setSlots] = useState({});
+
   const { id } = useSearchParams();
 
   useEffect(() => {
-    const timeSlot = `${getDate()} ${START_OF_DAY}:00:00`;
-    const endOfDay = `${getDate()} ${END_OF_DAY}:00:00`;
+    let timeSlotDate = new Date();
+    timeSlotDate.setMinutes(0);
+    timeSlotDate.setSeconds(0);
+    timeSlotDate.setMilliseconds(0);
+    timeSlotDate.setHours(START_OF_DAY);
+
+    let endOfDay = new Date();
+    endOfDay.setHours(END_OF_DAY);
+
     const slots = [];
 
-    while (new Date(timeSlot) < new Date(endOfDay)) {
+    while (true) {
+      const start = timeSlotDate.toISOString();
+      timeSlotDate.setMinutes(timeSlotDate.getMinutes() + INCREMENTS);
+      const end = timeSlotDate.toISOString();
+
+      if(timeSlotDate >= endOfDay) {
+        break;
+      }
+
       slots.push({
-        start: `${getDate(-1)} 09:20:00`,
-        end: `${getDate(-1)} 12:00:00`,
-        title: 'Merge Request to React Native Calendars',
+        start,  // `${getDate(-1)} 09:20:00`,
+        end,
+        title: 'Available Slot',
         summary: 'Merge Timeline Calendar to React Native Calendars'
-      })
+      });
     }
+
+    setSlots(
+      groupBy(slots, e => CalendarUtils.getCalendarDateString(e.start)) as {
+      [key: string]: TimelineEventProps[];
+        }
+      );
   }, []);
 
   const marked = {
@@ -96,7 +119,7 @@ const DoctorScreen = () => {
         markedDates={marked}
       />
       <TimelineList
-        events={eventsByDate}
+        events={slots}
         timelineProps={timelineProps}
         showNowIndicator
         // scrollToNow
