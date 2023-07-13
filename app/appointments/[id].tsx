@@ -1,6 +1,6 @@
 //@ts-nocheck
 import React from 'react';
-import {Text, View, StyleSheet, TouchableOpacity} from 'react-native';
+import {Text, View, StyleSheet, TouchableOpacity, FlatList} from 'react-native';
 import {Searchbar} from "react-native-paper";
 
 const AppointmentDetails = () => {
@@ -13,6 +13,23 @@ const AppointmentDetails = () => {
       </TouchableOpacity>
 
       <Text className="text-2xl font-semibold mt-5">Upcoming Appointments:</Text>
+
+      <FlatList
+        data={[
+          {
+            id: '1',
+            name: 'John Doe',
+            speciality: 'Cardiologist',
+          }
+        ]}
+        renderItem={({item}) => (
+          <View className="bg-white rounded-lg shadow-lg p-5  mt-5">
+            <Text className="text-xl font-semibold">Dr. {item.name}</Text>
+            <Text className="text-gray-500">#{item.id}</Text>
+            <Text className="text-gray-500">{item.speciality}</Text>
+          </View>
+        )}
+      />
     </View>
   );
 };
